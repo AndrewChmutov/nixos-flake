@@ -10,14 +10,23 @@
     nixpkgs,
   }: let
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
   in {
-    checks.${system}.statix = nixpkgs.legacyPackages.${system}.statix;
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    checks.${system}.statix = pkgs.statix;
+    formatter.${system} = pkgs.alejandra;
 
     nixosConfigurations = {
       terra = nixpkgs.lib.nixosSystem {
         modules = [./nixos/configuration.nix];
       };
+    };
+
+    devShells.${system}.default = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        alejandra
+        pre-commit
+        typos
+      ];
     };
   };
 }

@@ -1,0 +1,17 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: trailing-whitespace
+- repo: local
+  hooks:
+    - id: format-check
+      name: Check the format
+      entry: alejandra check . -c -e nixos/hardware-configuration.nix -e ./nixos/hardware-configuration.nix
+      types: [nix]
+      language: system
+- repo: https://github.com/crate-ci/typos
+  rev: v1.16.23
+  hooks:
+    - id: typos
+      language: system

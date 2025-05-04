@@ -16,6 +16,17 @@ in {
       openssh
       tmux
       gawk
+      scc
+      btop
+      fd
+      ripgrep
+      fzf
+      kitty
+      rustup
+      uv
+      zathura
+      starship
+      zsh
     ];
 
     activation = {

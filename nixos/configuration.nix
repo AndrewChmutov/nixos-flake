@@ -89,23 +89,12 @@
 
   environment = {
     systemPackages = with pkgs; [
-      btop
       curl
       evince
-      fd
-      ripgrep
-      firefox
-      fzf
       git
-      kitty
-      rustup
-      uv
-      xclip
-      zathura
       unzip
-      starship
+      xclip
       tmux
-      zsh
       neovim
     ];
     variables = {

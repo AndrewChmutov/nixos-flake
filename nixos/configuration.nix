@@ -42,6 +42,9 @@
         options = "grp:alt_space_toggle";
       };
 
+      autoRepeatInterval = 25;
+      autoRepeatDelay = 250;
+
       displayManager.startx.enable = true;
       windowManager.awesome.enable = true;
     };

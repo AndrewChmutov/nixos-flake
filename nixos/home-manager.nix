@@ -27,6 +27,9 @@ in {
       zathura
       starship
       zsh
+      trippy
+      telegram-desktop
+      python313
     ];
 
     activation = {
@@ -52,6 +55,7 @@ in {
         cloneIfNone tmux
         cloneIfNone kitty
         cloneIfNone zshrc
+        cloneIfNone trippy
       '';
     };
   };

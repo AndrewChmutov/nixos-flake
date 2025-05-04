@@ -5,7 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs }:
+  let
+    system = "x86_64-linux";
+  in {
+    formatter = nixpkgs.legacyPackages.${system}.alejandra;
+
     nixosConfigurations = {
       terra = nixpkgs.lib.nixosSystem {
         modules = [ ./nixos/configuration.nix ];

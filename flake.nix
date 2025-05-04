@@ -16,7 +16,7 @@
     formatter.${system} = pkgs.alejandra;
 
     nixosConfigurations = {
-      terra = nixpkgs.lib.nixosSystem {
+      barrel = nixpkgs.lib.nixosSystem {
         modules = [./nixos/configuration.nix];
       };
     };

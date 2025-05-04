@@ -22,7 +22,7 @@
   };
 
   networking = {
-    hostName = "terra";
+    hostName = "barrel";
     networkmanager.enable = true;
   };
 
@@ -62,7 +62,7 @@
     openssh.enable = true;
   };
 
-  users.users.dust = {
+  users.users.diogenes = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager"];
   };

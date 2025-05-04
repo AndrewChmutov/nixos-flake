@@ -30,6 +30,14 @@ in {
       trippy
       telegram-desktop
       python313
+      xsecurelock
+      acpi
+      acpilight
+      jmtpfs
+      pulseaudio
+      fuse
+      pavucontrol
+      sof-firmware
     ];
 
     activation = {
@@ -56,6 +64,7 @@ in {
         cloneIfNone kitty
         cloneIfNone zshrc
         cloneIfNone trippy
+        cloneIfNone zathura
       '';
     };
   };

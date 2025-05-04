@@ -30,10 +30,9 @@ in {
         mkdir -p "${reposDir}"
 
         cloneIfNone() {
-          echo "${reposDir}$1"
           if [ ! -d "${reposDir}$1" ]; then
-            git clone git@github.com:andrewchmutov/$1 "${reposDir}$1"
-                  make force -C "${reposDir}$1"
+            git clone git@github.com:andrewchmutov/$1 "${reposDir}$1" --recursive
+            make force -C "${reposDir}$1"
           fi
         }
 

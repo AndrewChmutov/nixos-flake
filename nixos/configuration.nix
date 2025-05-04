@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./hardware-configuration.nix];
 
   boot.loader = {
@@ -111,13 +106,6 @@
     tmux
     zsh
     neovim
-    gnumake
-    nodejs_23
-    llvmPackages_19.libcxxClang
-    libgcc
-    luajitPackages.luarocks
-    luajit
-    tree-sitter
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

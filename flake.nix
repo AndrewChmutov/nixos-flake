@@ -23,6 +23,7 @@
 
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
+        statix
         alejandra
         pre-commit
         typos

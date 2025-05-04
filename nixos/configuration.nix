@@ -62,7 +62,16 @@
     extraGroups = ["wheel" "networkmanager"];
   };
 
-  hardware.bluetooth.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+    cpu.intel.updateMicrocode = true;
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        vpl-gpu-rt
+      ];
+    };
+  };
 
   programs = {
     git = {

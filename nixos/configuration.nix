@@ -87,26 +87,31 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  environment.systemPackages = with pkgs; [
-    btop
-    curl
-    evince
-    fd
-    ripgrep
-    firefox
-    fzf
-    git
-    kitty
-    rustup
-    uv
-    xclip
-    zathura
-    unzip
-    starship
-    tmux
-    zsh
-    neovim
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      btop
+      curl
+      evince
+      fd
+      ripgrep
+      firefox
+      fzf
+      git
+      kitty
+      rustup
+      uv
+      xclip
+      zathura
+      unzip
+      starship
+      tmux
+      zsh
+      neovim
+    ];
+    variables = {
+      MOZ_USE_XINPUT2 = 1;
+    };
+  };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

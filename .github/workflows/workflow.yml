@@ -1,0 +1,13 @@
+name: CI Workflow
+on: [push, pull_request]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: luisnquin/setup-alejandra@v1.0.0
+      - uses: baptiste0928/cargo-install@v3
+        with:
+          crate: typos-cli
+      - uses: pre-commit/action@v3.0.1

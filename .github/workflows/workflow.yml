@@ -21,4 +21,4 @@ jobs:
       - uses: cachix/cachix-action@v14
         with:
           name: statix
-      - run: nix run nixpkgs#statix -- check
+      - run: nix run nixpkgs#statix -- check -i nixos/hardware-configuration.nix

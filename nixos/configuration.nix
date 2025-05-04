@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports = [ ./hardware-configuration.nix ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix];
 
   boot.loader = {
     grub = {
@@ -42,7 +45,7 @@
       displayManager.startx.enable = true;
       windowManager.awesome.enable = true;
     };
-    
+
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -58,7 +61,7 @@
 
   users.users.dust = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = ["wheel" "networkmanager"];
   };
 
   hardware.bluetooth.enable = true;
@@ -114,7 +117,7 @@
     tree-sitter
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   system.stateVersion = "24.11";
 }

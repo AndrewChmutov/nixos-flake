@@ -11,6 +11,7 @@
   }: let
     system = "x86_64-linux";
   in {
+    checks.${system}.statix = nixpkgs.legacyPackages.${system}.statix;
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
     nixosConfigurations = {

@@ -11,33 +11,35 @@ in {
     stateVersion = "24.11";
 
     packages = with pkgs; [
-      git
-      gnumake
-      openssh
-      tmux
-      gawk
-      scc
-      btop
-      fd
-      ripgrep
-      fzf
-      kitty
-      rustup
-      uv
-      zathura
-      starship
-      zsh
-      trippy
-      telegram-desktop
-      python313
-      xsecurelock
       acpi
       acpilight
-      jmtpfs
-      pulseaudio
+      btop
+      fd
       fuse
+      fzf
+      gawk
+      git
+      gnumake
+      jmtpfs
+      kitty
+      nh
+      nix-index
+      openssh
       pavucontrol
+      pulseaudio
+      python313
+      ripgrep
+      rustup
+      scc
       sof-firmware
+      starship
+      telegram-desktop
+      tmux
+      trippy
+      uv
+      xsecurelock
+      zathura
+      zsh
     ];
 
     activation = {

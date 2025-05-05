@@ -7,7 +7,10 @@ repos:
   hooks:
     - id: format-check
       name: Check the format
-      entry: alejandra check . -c -e nixos/hardware-configuration.nix -e ./nixos/hardware-configuration.nix
+      entry: |
+        alejandra check . -c \
+          -e ./sys/barrel/hardware-configuration.nix \
+          -e sys/barrel/hardware-configuration.nix \
       types: [nix]
       language: system
 - repo: https://github.com/crate-ci/typos

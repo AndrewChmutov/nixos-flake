@@ -26,7 +26,7 @@
 
     nixosConfigurations = {
       barrel = nixpkgs.lib.nixosSystem {
-        modules = [./nixos/configuration.nix];
+        modules = [./sys/barrel/configuration.nix];
       };
     };
 
@@ -34,7 +34,7 @@
       barrel = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./nixos/home-manager.nix
+          ./home/barrel/home-manager.nix
           inputs.zen-browser.homeModules.twilight
         ];
       };

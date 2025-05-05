@@ -13,7 +13,9 @@ in {
     packages = with pkgs; [
       acpi
       acpilight
+      apptainer
       btop
+      eog
       fd
       fuse
       fzf

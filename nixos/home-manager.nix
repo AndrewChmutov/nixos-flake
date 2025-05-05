@@ -41,31 +41,36 @@ in {
     ];
 
     activation = {
-      cloneStandaloneConfigs = lib.hm.dag.entryAfter ["writeBoundary" "installPackages"] ''
-        export GIT_SSH_COMMAND=${pkgs.openssh}/bin/ssh
-        export PATH=$PATH:${pkgs.git}/bin/
-        export PATH=$PATH:${pkgs.gnumake}/bin/
-        export PATH=$PATH:${pkgs.neovim}/bin/
-        export PATH=$PATH:${pkgs.tmux}/bin/
-        export PATH=$PATH:${pkgs.gawk}/bin/
+      cloneStandaloneConfigs =
+        lib.hm.dag.entryAfter ["writeBoundary" "installPackages"]
+        /*
+        bash
+        */
+        ''
+          export GIT_SSH_COMMAND=${pkgs.openssh}/bin/ssh
+          export PATH=$PATH:${pkgs.git}/bin/
+          export PATH=$PATH:${pkgs.gnumake}/bin/
+          export PATH=$PATH:${pkgs.neovim}/bin/
+          export PATH=$PATH:${pkgs.tmux}/bin/
+          export PATH=$PATH:${pkgs.gawk}/bin/
 
-        mkdir -p "${reposDir}"
+          mkdir -p "${reposDir}"
 
-        cloneIfNone() {
-          if [ ! -d "${reposDir}$1" ]; then
-            git clone git@github.com:andrewchmutov/$1 "${reposDir}$1" --recursive
-            make force -C "${reposDir}$1"
-          fi
-        }
+          cloneIfNone() {
+            if [ ! -d "${reposDir}$1" ]; then
+              git clone git@github.com:andrewchmutov/$1 "${reposDir}$1" --recursive
+              make force -C "${reposDir}$1"
+            fi
+          }
 
-        cloneIfNone awesome
-        cloneIfNone nvim
-        cloneIfNone tmux
-        cloneIfNone kitty
-        cloneIfNone zshrc
-        cloneIfNone trippy
-        cloneIfNone zathura
-      '';
+          cloneIfNone awesome
+          cloneIfNone nvim
+          cloneIfNone tmux
+          cloneIfNone kitty
+          cloneIfNone zshrc
+          cloneIfNone trippy
+          cloneIfNone zathura
+        '';
     };
   };
 

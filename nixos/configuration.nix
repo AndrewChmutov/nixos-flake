@@ -61,6 +61,8 @@
     openssh.enable = true;
   };
 
+  systemd.sockets.docker.enable = false;
+
   users.users.diogenes = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager"];
@@ -112,6 +114,15 @@
     ];
     variables = {
       MOZ_USE_XINPUT2 = 1;
+    };
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
     };
   };
 

@@ -17,27 +17,19 @@
   };
 
   outputs = inputs: let
-    inherit (inputs) home-manager nixpkgs;
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    util = import ./util inputs;
   in {
     checks.${system}.statix = pkgs.statix;
     formatter.${system} = pkgs.alejandra;
 
     nixosConfigurations = {
-      barrel = nixpkgs.lib.nixosSystem {
-        modules = [./sys/barrel/configuration.nix];
-      };
+      barrel = util.sys.make "x86_64-linux" "barrel";
     };
 
     homeConfigurations = {
-      barrel = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home/barrel/home-manager.nix
-          inputs.zen-browser.homeModules.twilight
-        ];
-      };
+      barrel = util.home.make "x86_64-linux" "barrel";
     };
 
     devShells.${system}.default = pkgs.mkShell {

@@ -4,6 +4,10 @@
   ...
 }: let
   reposDir = "/home/diogenes/dev/pet/";
+  lock = Value: {
+    inherit Value;
+    Status = "locked";
+  };
 in {
   home = {
     username = "diogenes";
@@ -106,6 +110,9 @@ in {
         DontCheckDefaultBrowser = true;
         NoDefaultBookmarks = true;
         OfferToSaveLogins = false;
+        Preferences = {
+          "browser.ctrlTab.sortByRecentlyUsed" = lock true;
+        };
       };
     };
   };
